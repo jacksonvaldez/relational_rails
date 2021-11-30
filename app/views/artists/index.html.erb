@@ -1,4 +1,4 @@
 <p>This is a list of artists</p>
 <% @artists.each do |artist| %>
-  <p> <%= artist.name %> </p>
+  <p><a href="/artists/<%= artist.id %>"> <%= artist.name %> </a></p>
 <% end %>
