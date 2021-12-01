@@ -1,7 +1,7 @@
 class BakeriesController < ApplicationController
 
   def index
-    @bakeries = Bakery.all
+    @bakeries = Bakery.order(created_at: :desc)
   end
 
   def show
