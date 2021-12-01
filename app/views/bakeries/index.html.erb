@@ -1,4 +1,4 @@
 <p>This is a list of bakeries:</p>
 <% @bakeries.each do |bakery| %>
-  <p><a href="/bakeries/<%= bakery.id %>"> <%= bakery.name %> </a></p>
+  <p><a href="/bakeries/<%= bakery.id %>"> <%= bakery.name %></a> (<%=bakery.baker_count %> bakers)</p>
 <% end %>
