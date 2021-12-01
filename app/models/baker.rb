@@ -1,8 +1,7 @@
 class Baker < ApplicationRecord
 
   def bakery
-    bakery = Bakery.find(self.bakery_id)
-    bakery.name
+    Bakery.find(self.bakery_id)
   end
 
 end

@@ -1,8 +1,7 @@
 class Song < ApplicationRecord
 
   def artist
-    artist = Artist.find(self.artist_id)
-    artist.name
+    Artist.find(self.artist_id)
   end
 
 end
