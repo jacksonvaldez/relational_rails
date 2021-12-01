@@ -1,0 +1,4 @@
+<p>This is a list of bakeries:</p>
+<% @bakeries.each do |bakery| %>
+  <p><a href="/bakeries/<%= bakery.id %>"> <%= bakery.name %> </a></p>
+<% end %>
