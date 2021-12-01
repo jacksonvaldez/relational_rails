@@ -9,4 +9,9 @@ class BakersController < ApplicationController
     @baker = Baker.find(params[:id])
   end
 
+  def show_by_bakery
+    bakery = Bakery.find(params[:id])
+    @bakers = bakery.bakers
+  end
+
 end

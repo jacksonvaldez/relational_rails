@@ -1,0 +1,11 @@
+
+<% @bakers.each do |baker|%>
+<h3><%= baker.name %></h3>
+
+<p>Bakery: <%= baker.bakery %></p>
+
+<p>Open: <%= baker.is_working %></p>
+
+<p>Salary: $<%= baker.salary %>/yr</p>
+
+<% end %>

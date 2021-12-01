@@ -1,0 +1,11 @@
+
+<% @songs.each do |song|%>
+<h3><%= song.name %></h3>
+
+<p>Artist: <%= song.artist %></p>
+
+<p>Top 100: <%= song.top_100 %></p>
+
+<p>Length: <%= song.length_s %></p>
+
+<% end %>
