@@ -6,11 +6,13 @@ Rails.application.routes.draw do
   get '/artists/:id', to: 'artists#show'
   get '/songs', to:'songs#index'
   get '/songs/:id', to:'songs#show'
+  get '/artists/:id/songs', to: 'songs#show_by_artist'
 
   # Bakery/Baker Relationship
   get '/bakeries', to:'bakeries#index'
-  get 'bakeries/:id', to:'bakeries#show'
+  get '/bakeries/:id', to:'bakeries#show'
   get '/bakers', to:'bakers#index'
   get '/bakers/:id', to:'bakers#show'
+  get '/bakeries/:id/bakers', to:'bakers#show_by_bakery'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
