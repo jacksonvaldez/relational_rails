@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_015950) do
+ActiveRecord::Schema.define(version: 2021_12_01_001848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 2021_11_30_015950) do
     t.string "name"
     t.boolean "alive"
     t.integer "monthly_listeners"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bakeries", force: :cascade do |t|
+    t.string "name"
+    t.boolean "is_open"
+    t.integer "customer_capacity"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
