@@ -9,4 +9,9 @@ class Bakery < ApplicationRecord
     end
   end
 
+  def baker_count
+    self.bakers.count
+  end
+
+
 end
