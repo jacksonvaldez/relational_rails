@@ -1,0 +1,15 @@
+<h2>Create your Bakery</h2>
+
+<form action="/bakeries" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Enter a new name:</p>
+  <input type='text' name='bakery[name]'/><br/>
+  <label for="is_open">Status:</label>
+    <select id="is_open" name="is_open">
+      <option value="true">Open</option>
+      <option value="false">Closed</option>
+    </select>
+  <p>Enter the number of the customer capacity:</p>
+  <input type='text' name='bakery[customer_capacity]'/><br/>
+  <input type='submit'/>
+</form>
