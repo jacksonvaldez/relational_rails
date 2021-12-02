@@ -15,25 +15,25 @@ class ArtistsController < ApplicationController
   def create
 
     params[:artist][:alive] == "true" ? alive = true : alive = false
-    Artist.create(
+    Artist.create({
       name: params[:artist][:name],
       alive: alive,
       monthly_listeners: params[:artist][:monthly_listeners].to_i
-    )
+    })
     redirect_to '/artists/'
   end
 
   def update
-    require "pry"; binding.pry
+    # require "pry"; binding.pry
     artist = Artist.find(params[:id])
-    params[:artist][:alive] == "true" ? alive = true : alive = false
+    params[:alive] == "true" ? alive = true : alive = false
     artist.update(
       name: params[:artist][:name],
       alive: alive,
       monthly_listeners: params[:artist][:monthly_listeners].to_i
     )
     artist.save
-    redirect_to '/artists/:id'
+    redirect_to "/artists/#{artist.id}"
   end
 
   def edit
