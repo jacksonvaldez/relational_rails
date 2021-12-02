@@ -22,4 +22,21 @@ class BakeriesController < ApplicationController
     redirect_to '/bakeries/'
   end
 
+  def update
+    # require "pry"; binding.pry
+    bakery = Bakery.find(params[:id])
+    params[:is_open] == "true" ? is_open = true : is_open = false
+    bakery.update(
+      name: params[:bakery][:name],
+      is_open: is_open,
+      customer_capacity: params[:bakery][:customer_capacity].to_i
+    )
+    bakery.save
+    redirect_to "/bakeries/#{bakery.id}"
+  end
+
+  def edit
+    @bakery = Bakery.find(params[:id])
+  end
+
 end
