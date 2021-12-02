@@ -242,6 +242,18 @@
         "lines": [
           1,
           1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
           1,
           1,
           null,
@@ -254,9 +266,66 @@
           null
         ]
       },
-      "/Users/apa/2module/relational_rails/app/models/artist.rb": {
+      "/Users/apa/2module/relational_rails/spec/features/bakers/show_by_bakery_spec.rb": {
         "lines": [
           1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/apa/2module/relational_rails/spec/features/bakers/show_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/apa/2module/relational_rails/app/models/bakery.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
           null,
           null
         ]
@@ -267,8 +336,46 @@
           1,
           null
         ]
+      },
+      "/Users/apa/2module/relational_rails/app/models/baker.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          3,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/apa/2module/relational_rails/app/controllers/bakers_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/apa/2module/relational_rails/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1638242992
+    "timestamp": 1638410557
   }
 }
