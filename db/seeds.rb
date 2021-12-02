@@ -36,6 +36,5 @@ song_2 = Song.create!(name: 'Purple Rain', top_100: false, length_s: 100, artist
 song_3 = Song.create!(name: 'Dove Cry', top_100: true, length_s: 150, artist_id: artist_1.id)
 song_4 = Song.create!(name: "Flashing Lights", top_100: true, length_s: 300, artist_id: artist_3.id)
 song_5 = Song.create!(name: "Gold Digger", top_100: false, length_s: 250, artist_id: artist_3.id)
-song_6 = Song.create!(name: "Flashing Lights", top_100: true, length_s: 300, artist_id: artist_3.id)
 song_8 = Song.create!(name: "Seven Rings", top_100: true, length_s: 230, artist_id: artist_5.id)
 song_9 = Song.create!(name: "Side to Side", top_100: false, length_s: 254, artist_id: artist_5.id)
