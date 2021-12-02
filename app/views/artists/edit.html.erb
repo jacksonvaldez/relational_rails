@@ -1,0 +1,16 @@
+<h2>Edit your Artist</h2>
+
+<form action="/artists/<% @artist.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Enter a new name:</p>
+  <input type='text' name='artist[name]'/><br/>
+  <label for="alive">Status:</label>
+    <select id="alive" name="alive">
+      <option value="true">Alive</option>
+      <option value="false">Dead</option>
+    </select>
+  <p>Change the amount of monthly listeners:</p>
+  <input type='text' name='artist[monthly_listeners]'/><br/>
+  <input type='submit'/>
+</form>
