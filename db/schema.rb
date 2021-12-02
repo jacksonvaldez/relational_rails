@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_01_012753) do
+ActiveRecord::Schema.define(version: 2021_12_02_180717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,18 +35,22 @@ ActiveRecord::Schema.define(version: 2021_12_01_012753) do
     t.string "name"
     t.boolean "is_working"
     t.integer "salary"
-    t.integer "bakery_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.bigint "bakery_id"
+    t.index ["bakery_id"], name: "index_bakers_on_bakery_id"
   end
 
   create_table "songs", force: :cascade do |t|
     t.string "name"
     t.boolean "top_100"
     t.integer "length_s"
-    t.integer "artist_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.bigint "artist_id"
+    t.index ["artist_id"], name: "index_songs_on_artist_id"
   end
 
+  add_foreign_key "bakers", "bakeries"
+  add_foreign_key "songs", "artists"
 end
