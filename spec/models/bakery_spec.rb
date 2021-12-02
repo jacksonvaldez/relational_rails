@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Bakery do
+  it {should have_many :bakers}
+
   before(:each) do
     @bakery = Bakery.create!({ name: 'Dunkin Donutes', is_open: false, customer_capacity: 20 })
     @baker_1 = Baker.create!(name: 'jon smith', is_working: false, salary: 10000, bakery_id: @bakery.id)

@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Artist do
+  it {should have_many :songs}
+  
   before(:each) do
     @artist = Artist.create!({ name: 'Prince', alive: false, monthly_listeners: 50_000 })
     @song_1 = Song.create!(name: 'Purple Rain', top_100: false, length_s: 100, artist_id: @artist.id)
