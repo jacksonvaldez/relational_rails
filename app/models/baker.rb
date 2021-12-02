@@ -1,7 +1,3 @@
 class Baker < ApplicationRecord
-
-  def bakery
-    Bakery.find(self.bakery_id)
-  end
-
+  belongs_to :bakery
 end
