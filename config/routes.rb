@@ -10,10 +10,12 @@ Rails.application.routes.draw do
   get '/songs/:id', to:'songs#show'
   get '/artists/:id/songs', to: 'songs#show_by_artist'
   get "/artists/:id/songs/new", to: 'songs#new'
+  get "/songs/:id/edit", to: 'songs#edit'
 
   post '/artists/', to: 'artists#create'
   patch '/artists/:id', to:  'artists#update'
   post "/artists/:id/songs", to: 'songs#create'
+  patch '/songs/:id', to:  'songs#update'
 
   # Bakery/Baker Relationship
   get '/bakeries', to:'bakeries#index'
@@ -24,9 +26,11 @@ Rails.application.routes.draw do
   get '/bakers/:id', to:'bakers#show'
   get '/bakeries/:id/bakers', to:'bakers#show_by_bakery'
   get "/bakeries/:id/bakers/new", to: 'bakers#new'
+  get "/bakers/:id/edit", to: 'bakers#edit'
 
   post '/bakeries/', to: 'bakeries#create'
   patch '/bakeries/:id', to: 'bakeries#update'
   post "/bakeries/:id/bakers", to: 'bakers#create'
+  patch '/bakers/:id', to:  'bakers#update'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
