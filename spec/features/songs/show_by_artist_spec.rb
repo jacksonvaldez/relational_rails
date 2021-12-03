@@ -8,7 +8,7 @@ RSpec.describe 'list of all songs by artist' do
     @song_1 = Song.create!(name: "Flashing Lights", top_100: true, length_s: 300, artist_id: @artist_1.id)
     @song_2 = Song.create!(name: "Gold Digger", top_100: false, length_s: 250, artist_id: @artist_1.id)
     @song_3 = Song.create!(name: "Seven Rings", top_100: true, length_s: 230, artist_id: @artist_2.id)
-    @song_4 = Song.create!(name: "Side to Side", top_100: false, length_s: 254, artist_id: @artist_2.id)
+    @song_4 = Song.create!(name: "Dangerous Woman", top_100: false, length_s: 254, artist_id: @artist_2.id)
 
     visit "/artists/#{@artist_2.id}/songs"
   end
@@ -20,6 +20,11 @@ RSpec.describe 'list of all songs by artist' do
     expect(page).to have_content('230')
 
     expect(page).to_not have_content('Gold Digger')
+  end
+
+  it 'sorts the song names alphabetically when asked' do
+    click_on 'Sort Songs'
+    expect(page).to have_content("Length: 254\nSeven Rings")
   end
 
 end
