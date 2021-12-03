@@ -39,4 +39,11 @@ class BakeriesController < ApplicationController
     @bakery = Bakery.find(params[:id])
   end
 
+  def delete
+    Baker.where(bakery_id: params[:id]).select(:id).destroy_all
+    Bakery.destroy(params[:id])
+    redirect_to '/bakeries'
+
+  end
+
 end
