@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-12-02T22:41:36-07:00">2021-12-02T22:41:36-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-12-03T11:49:29-07:00">2021-12-03T11:49:29-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -2248,7 +2248,7 @@
 
             
 
-            <code class="ruby">    @bakers = Baker.where(bakery_id: params[:id])</code>
+            <code class="ruby">    bakers = Baker.where(bakery_id: params[:id])</code>
           </li>
         </div>
       
@@ -2259,7 +2259,7 @@
 
             
 
-            <code class="ruby">    @bakers = @bakers.sort_by { |baker| baker.name.downcase }</code>
+            <code class="ruby">    bakers = bakers.sort_by { |baker| baker.name.downcase }</code>
           </li>
         </div>
       
@@ -2270,7 +2270,7 @@
 
             
 
-            <code class="ruby">    redirect_to controller: &#39;bakers&#39;, action: &#39;show_by_bakery&#39;, sorted_bakers: @bakers</code>
+            <code class="ruby">    redirect_to controller: &#39;bakers&#39;, action: &#39;show_by_bakery&#39;, sorted_bakers: bakers</code>
           </li>
         </div>
       
@@ -2906,7 +2906,7 @@
 
             
 
-            <code class="ruby">    @songs = Song.where(artist_id: params[:id])</code>
+            <code class="ruby">    songs = Song.where(artist_id: params[:id])</code>
           </li>
         </div>
       
@@ -2917,7 +2917,7 @@
 
             
 
-            <code class="ruby">    @songs = @songs.sort_by { |song| song.name.downcase }</code>
+            <code class="ruby">    songs = songs.sort_by { |song| song.name.downcase }</code>
           </li>
         </div>
       
@@ -2928,7 +2928,7 @@
 
             
 
-            <code class="ruby">    redirect_to controller: &#39;songs&#39;, action: &#39;show_by_artist&#39;, sorted_songs: @songs</code>
+            <code class="ruby">    redirect_to controller: &#39;songs&#39;, action: &#39;show_by_artist&#39;, sorted_songs: songs</code>
           </li>
         </div>
       
