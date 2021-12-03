@@ -21,9 +21,5 @@ RSpec.describe 'list of all songs by artist' do
 
     expect(page).to_not have_content('Gold Digger')
   end
-  it 'has correct path' do
-    click_on 'Sort Songs'
 
-    expect(page).to have_current_path("/artists/#{@artist_2.id}/songs")
-  end
 end
