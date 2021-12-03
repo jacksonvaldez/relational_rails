@@ -12,7 +12,7 @@ class BakersController < ApplicationController
 
   def show_by_bakery
     @bakery = Bakery.find(params[:id])
-    @bakers = @bakery.bakers
+    params[:sorted_bakers].class == Array ? @bakers = Baker.find(params[:sorted_bakers]) : @bakers = @bakery.bakers
   end
 
   def new
@@ -46,6 +46,12 @@ class BakersController < ApplicationController
     )
     baker.save
     redirect_to "/bakers/#{baker.id}"
+  end
+
+  def sorted
+    @bakers = Baker.where(bakery_id: params[:id])
+    @bakers = @bakers.sort_by { |baker| baker.name.downcase }
+    redirect_to controller: 'bakers', action: 'show_by_bakery', sorted_bakers: @bakers
   end
 
 end

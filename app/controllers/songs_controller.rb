@@ -12,7 +12,7 @@ class SongsController < ApplicationController
 
   def show_by_artist
     @artist = Artist.find(params[:id])
-    @songs = @artist.songs
+    params[:sorted_songs].class == Array ? @songs = Song.find(params[:sorted_songs]) : @songs = @artist.songs
   end
 
   def new
@@ -46,6 +46,12 @@ class SongsController < ApplicationController
     )
     song.save
     redirect_to "/songs/#{song.id}"
+  end
+
+  def sorted
+    @songs = Song.where(artist_id: params[:id])
+    @songs = @songs.sort_by { |song| song.name.downcase }
+    redirect_to controller: 'songs', action: 'show_by_artist', sorted_songs: @songs
   end
 
 end

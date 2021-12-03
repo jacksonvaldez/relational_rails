@@ -1,5 +1,7 @@
 <%= render './header' %>
 
+<p><a href="/bakeries/<%= @bakery.id %>/bakers/sorted">Sort Bakers</a></p>
+
 <% @bakers.each do |baker|%>
 <h3><%= baker.name %></h3>
 

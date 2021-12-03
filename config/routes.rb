@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/artists/:id/songs', to: 'songs#show_by_artist'
   get "/artists/:id/songs/new", to: 'songs#new'
   get "/songs/:id/edit", to: 'songs#edit'
+  get '/artists/:id/songs/sorted', to: 'songs#sorted'
 
   post '/artists/', to: 'artists#create'
   patch '/artists/:id', to:  'artists#update'
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
   get '/bakeries/:id/bakers', to:'bakers#show_by_bakery'
   get "/bakeries/:id/bakers/new", to: 'bakers#new'
   get "/bakers/:id/edit", to: 'bakers#edit'
+  get '/bakeries/:id/bakers/sorted', to: 'bakers#sorted'
 
   post '/bakeries/', to: 'bakeries#create'
   patch '/bakeries/:id', to: 'bakeries#update'

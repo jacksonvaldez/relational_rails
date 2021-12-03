@@ -1,5 +1,7 @@
 <%= render './header' %>
 
+<p><a href="/artists/<%= @artist.id %>/songs/sorted">Sort Songs</a></p>
+
 <% @songs.each do |song|%>
 <h3><%= song.name %></h3>
 
