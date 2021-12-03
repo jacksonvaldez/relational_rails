@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   patch '/artists/:id', to:  'artists#update'
   post "/artists/:id/songs", to: 'songs#create'
   patch '/songs/:id', to:  'songs#update'
+  delete '/artists', to: 'artists#delete'
 
   # Bakery/Baker Relationship
   get '/bakeries', to:'bakeries#index'
@@ -34,5 +35,6 @@ Rails.application.routes.draw do
   patch '/bakeries/:id', to: 'bakeries#update'
   post "/bakeries/:id/bakers", to: 'bakers#create'
   patch '/bakers/:id', to:  'bakers#update'
+  delete '/bakeries/', to: 'bakeries#delete'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
