@@ -1,0 +1,15 @@
+<h2>Add a Baker</h2>
+
+<form action="/bakeries/<%= @bakery.id %>/bakers" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Name:</p>
+  <input type='text' name='baker[name]'/><br/>
+  <label for="is_working">Working Currently:</label>
+    <select id="is_working" name="is_working">
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select>
+  <p>Salary in USD:</p>
+  <input type='text' name='baker[salary]'/><br/>
+  <input type='submit'/>
+</form>
