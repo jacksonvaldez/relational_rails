@@ -14,7 +14,6 @@ RSpec.describe 'list of all artists' do
     expect(page).to have_content('Tim Hortons')
     expect(page).to have_content('false')
     expect(page).to have_content('5')
-    expect(page).to have_content('0')
     expect(page).to_not have_content('Starbucks')
   end
 
@@ -24,7 +23,7 @@ RSpec.describe 'list of all artists' do
 
   it 'redirects to correct path after deleting' do
     click_on 'Delete'
-    expect(page).to have_current_path("/bakeries/")
+    expect(page).to have_current_path("/bakeries")
   end
 
   it 'deletes a bakery' do
