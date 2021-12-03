@@ -1,6 +1,12 @@
 <%= render './header' %>
 
-<p>This is a list of songs:</p>
+<h3>All Songs:</h3>
 <% @songs.each do |song| %>
+  <p><a href="/songs/<%= song.id %>"> <%= song.name %></a> (<a href='/songs/<%= song.id %>/edit'>Edit</a>)</p>
+<% end %>
+
+
+<h3> Songs in the Top 100: </h3>
+<% @top_100_songs.each do |song| %>
   <p><a href="/songs/<%= song.id %>"> <%= song.name %></a></p>
 <% end %>

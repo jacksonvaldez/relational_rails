@@ -1,6 +1,8 @@
 <%= render './header' %>
 
-<p>This is a list of bakeries:</p>
+<h3>All Bakeries:</h3>
 <% @bakeries.each do |bakery| %>
-  <p><a href="/bakeries/<%= bakery.id %>"> <%= bakery.name %></a></p>
+  <p><a href="/bakeries/<%= bakery.id %>"> <%= bakery.name %></a> (<a href="/bakeries/<%= bakery.id %>/edit">Edit</a>)</p>
 <% end %>
+
+<h3><a href="/bakeries/new">New Bakery</a></h3>

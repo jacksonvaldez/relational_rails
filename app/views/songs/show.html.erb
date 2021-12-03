@@ -1,7 +1,5 @@
 <%= render './header' %>
 
-<a href="/songs">Songs Index</a>
-
 <h1><%= @song.name %></h1>
 
 <p>Artist: <%= @song.artist.name %></p>
@@ -9,3 +7,5 @@
 <p>Top 100: <%= @song.top_100 %></p>
 
 <p>Length: <%= @song.length_s %></p>
+
+<h3><a href="/songs/<%= @song.id %>/edit">Update This Song</a></h3>

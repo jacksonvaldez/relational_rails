@@ -1,7 +1,5 @@
 <%= render './header' %>
 
-<a href="/bakeries">Bakeries Index</a>
-
 <h1><%= @bakery.name %></h1>
 
 <p>Open: <%= @bakery.is_open %></p>
@@ -9,3 +7,5 @@
 <p>Customer Capacity: <%= @bakery.customer_capacity %></p>
 
 <p><a href="/bakeries/<%= @bakery.id %>/bakers"> Bakers</a> (<%= @bakery.baker_count %> bakers)</p>
+
+<h3><a href="/bakeries/<%= @bakery.id %>/edit">Update This Bakery</a></h3>

@@ -1,0 +1,16 @@
+<h2>Edit Baker</h2>
+
+<form action="/bakers/<%= @baker.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Name:</p>
+  <input type='text' name='baker[name]' value="<%= @baker.name %>"/><br/><br/>
+  <label for="is_working">Currently Working:</label>
+    <select id="is_working" name="is_working" >
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select>
+  <p>Salary in USD:</p>
+  <input type='text' name='baker[salary]' value="<%= @baker.salary %>"/><br/><br/>
+  <input type='submit' value = 'Save Changes'/>
+</form>

@@ -1,0 +1,16 @@
+<h2>Edit Bakery</h2>
+
+<form action="/bakeries/<%= @bakery.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Name:</p>
+  <input type='text' name='bakery[name]' value="<%= @bakery.name %>"/><br/><br/>
+  <label for="alive">Status:</label>
+    <select id="alive" name="alive" >
+      <option value="true">Open</option>
+      <option value="false">Closed</option>
+    </select>
+  <p>Customer Capacity:</p>
+  <input type='text' name='bakery[customer_capacity]' value="<%= @bakery.customer_capacity %>"/><br/><br/>
+  <input type='submit' value = 'Save Changes'/>
+</form>
