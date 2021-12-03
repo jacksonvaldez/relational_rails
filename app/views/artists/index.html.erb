@@ -1,6 +1,6 @@
 <%= render './header' %>
 
-<p>This is a list of artists:</p>
+<h3>All Artists:</h3>
 <% @artists.each do |artist| %>
   <p><a href="/artists/<%= artist.id %>"> <%= artist.name %></a> (<a href="/artists/<%= artist.id %>/edit">Edit</a>)</p>
 <% end %>

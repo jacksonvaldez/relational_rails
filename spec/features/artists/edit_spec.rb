@@ -5,7 +5,7 @@ RSpec.describe 'Edit Artist Form' do
   before(:each) do
     @ariana = Artist.create!(name: "Ariana Grande", alive: true, monthly_listeners: 150000)
     visit "/artists/#{@ariana.id}"
-    click_on "Update Artist"
+    click_on "Update This Artist"
     fill_in('artist[name]', with: 'Ariana Grandeeee')
     fill_in('artist[monthly_listeners]', with: '88888')
 

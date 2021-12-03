@@ -1,7 +1,5 @@
 <%= render './header' %>
 
-<a href="/artists">Artists Index</a>
-
 <h1><%= @artist.name %></h1>
 
 <p>Alive: <%= @artist.alive %></p>
@@ -10,4 +8,4 @@
 
 <p><a href="/artists/<%= @artist.id %>/songs"> Songs</a> (<%= @artist.song_count %> songs)</p>
 
-<h3><a href="/artists/<%= @artist.id %>/edit">Update Artist</a></h3>
+<h3><a href="/artists/<%= @artist.id %>/edit">Update This Artist</a></h3>
