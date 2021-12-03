@@ -1,6 +1,11 @@
 <%= render './header' %>
 
-<p>This is a list of bakers:</p>
+<h3>All Bakers:</h3>
 <% @bakers.each do |baker| %>
+  <p><a href="/bakers/<%= baker.id %>"> <%= baker.name %></a></p>
+<% end %>
+
+<h3>Bakers Currently Working:</h3>
+<% @working_bakers.each do |baker| %>
   <p><a href="/bakers/<%= baker.id %>"> <%= baker.name %></a></p>
 <% end %>

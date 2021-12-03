@@ -2,6 +2,7 @@ class BakersController < ApplicationController
 
   def index
     @bakers = Baker.all
+    @working_bakers = Baker.where(is_working: true)
   end
 
   def show

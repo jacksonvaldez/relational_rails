@@ -2,6 +2,7 @@ class SongsController < ApplicationController
 
   def index
     @songs = Song.all
+    @top_100_songs = Song.where(top_100: true)
   end
 
   def show
