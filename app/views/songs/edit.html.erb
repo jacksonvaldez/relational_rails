@@ -1,0 +1,16 @@
+<h2>Edit Song</h2>
+
+<form action="/songs/<%= @song.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Name:</p>
+  <input type='text' name='song[name]' value="<%= @song.name %>"/><br/>
+  <label for="top_100">Top 100:</label>
+    <select id="top_100" name="top_100" >
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select>
+  <p>Length Seconds:</p>
+  <input type='text' name='song[length_s]' value="<%= @song.length_s %>"/><br/>
+  <input type='submit'/>
+</form>
