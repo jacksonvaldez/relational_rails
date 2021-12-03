@@ -9,3 +9,5 @@
 <p><a href="/bakeries/<%= @bakery.id %>/bakers"> Bakers</a> (<%= @bakery.baker_count %> bakers)</p>
 
 <h3><a href="/bakeries/<%= @bakery.id %>/edit">Update This Bakery</a></h3>
+
+<%= button_to 'Delete', '/bakeries', params: {id: @bakery.id}, method: :delete, class: 'btnbtn-custom btn_sm'%>
