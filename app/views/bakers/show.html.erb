@@ -9,3 +9,5 @@
 <p>Salary: $<%= @baker.salary %>/yr</p>
 
 <h3><a href="/bakers/<%= @baker.id %>/edit">Update This Baker</a></h3>
+
+<%= button_to 'Delete', '/bakers', params: {id: @baker.id}, method: :delete, class: 'btnbtn-custom btn_sm'%>

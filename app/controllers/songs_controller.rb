@@ -12,7 +12,16 @@ class SongsController < ApplicationController
 
   def show_by_artist
     @artist = Artist.find(params[:id])
-    params[:sorted_songs].class == Array ? @songs = Song.find(params[:sorted_songs]) : @songs = @artist.songs
+    if params[:sorted_songs].class == Array
+      @songs = Song.find(params[:sorted_songs])
+    elsif defined?(params[:song][:length_s_threshold]) == 'method' && params[:song][:length_s_threshold] == ''
+      @songs = @artist.songs
+    elsif defined?(params[:song][:length_s_threshold]) == 'method'
+      @songs = Song.where("length_s > #{params[:song][:length_s_threshold]} AND artist_id = #{@artist.id}")
+    else
+      @songs = @artist.songs
+    end
+    # binding.pry
   end
 
   def new
@@ -54,4 +63,8 @@ class SongsController < ApplicationController
     redirect_to controller: 'songs', action: 'show_by_artist', sorted_songs: songs
   end
 
+  def delete
+    Song.destroy(params[:id])
+    redirect_to '/songs'
+  end
 end

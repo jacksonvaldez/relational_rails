@@ -39,4 +39,11 @@ class ArtistsController < ApplicationController
   def edit
     @artist = Artist.find(params[:id])
   end
+
+  def delete
+    Song.where(artist_id: params[:id]).select(:id).destroy_all
+    Artist.destroy(params[:id])
+    redirect_to '/artists'
+
+  end
 end

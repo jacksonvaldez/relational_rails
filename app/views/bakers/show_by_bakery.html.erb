@@ -14,3 +14,10 @@
 <% end %>
 
 <p><a href="/bakeries/<%= @bakery.id %>/bakers/new">Add Baker</a></p>
+
+<form action="/bakeries/<%= @bakery.id %>/bakers" method="get">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>List Bakers With Salary Greater Than:</p>
+  <input type='text' name='baker[salary_threshold]'/><br/><br/>
+  <input type='submit' value = 'Submit'/>
+</form>

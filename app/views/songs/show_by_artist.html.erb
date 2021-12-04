@@ -13,4 +13,11 @@
 
 <% end %>
 
-<p><a href="/artists/<%= @artist.id %>/songs/new">Create Song</a></p>
+<p><a href="/artists/<%= @artist.id %>/songs">Create Song</a></p>
+
+<form action="/artists/<%= @artist.id %>/songs" method="get">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>List Songs With Length Greater Than:</p>
+  <input type='text' name='song[length_s_threshold]'/><br/><br/>
+  <input type='submit' value = 'Submit'/>
+</form>
