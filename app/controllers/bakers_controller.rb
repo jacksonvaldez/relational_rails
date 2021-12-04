@@ -54,4 +54,8 @@ class BakersController < ApplicationController
     redirect_to controller: 'bakers', action: 'show_by_bakery', sorted_bakers: bakers
   end
 
+  def delete
+    Baker.destroy(params[:id])
+    redirect_to '/bakers'
+  end
 end

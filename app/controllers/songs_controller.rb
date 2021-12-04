@@ -54,4 +54,8 @@ class SongsController < ApplicationController
     redirect_to controller: 'songs', action: 'show_by_artist', sorted_songs: songs
   end
 
+  def delete
+    Song.destroy(params[:id])
+    redirect_to '/songs'
+  end
 end
