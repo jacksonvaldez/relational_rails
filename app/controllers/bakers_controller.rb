@@ -12,7 +12,16 @@ class BakersController < ApplicationController
 
   def show_by_bakery
     @bakery = Bakery.find(params[:id])
-    params[:sorted_bakers].class == Array ? @bakers = Baker.find(params[:sorted_bakers]) : @bakers = @bakery.bakers
+    if params[:sorted_bakers].class == Array
+      @bakers = Baker.find(params[:sorted_bakers])
+    elsif defined?(params[:baker][:salary_threshold]) == 'method' && params[:baker][:salary_threshold] == ''
+      @bakers = @bakery.bakers
+    elsif defined?(params[:baker][:salary_threshold]) == 'method'
+      @bakers = Baker.where("salary > #{params[:baker][:salary_threshold]} AND bakery_id = #{@bakery.id}")
+    else
+      @bakers = @bakery.bakers
+    end
+    # binding.pry
   end
 
   def new

@@ -27,4 +27,12 @@ RSpec.describe 'list of all songs by artist' do
     expect(page).to have_content("Length: 254\nSeven Rings")
   end
 
+  it 'returns songs with length greater than threshold' do
+    fill_in('song[length_s_threshold]', with: '250')
+    click_button()
+
+    expect(page).to have_content("Dangerous Woman")
+    expect(page).to_not have_content("Seven Rings")
+  end
+
 end
