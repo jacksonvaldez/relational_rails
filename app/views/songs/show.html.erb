@@ -9,3 +9,5 @@
 <p>Length: <%= @song.length_s %></p>
 
 <h3><a href="/songs/<%= @song.id %>/edit">Update This Song</a></h3>
+
+<%= button_to 'Delete', '/songs', params: {id: @song.id}, method: :delete, class: 'btnbtn-custom btn_sm'%>
