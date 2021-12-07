@@ -3,7 +3,7 @@
 <h3>All Bakers:</h3>
 <% @bakers.each do |baker| %>
   <p><a href="/bakers/<%= baker.id %>"> <%= baker.name %></a> (<a href='/bakers/<%= baker.id %>/edit'>Edit</a>)
-    <%= button_to 'Delete', '/bakers', params: {id: baker.id}, method: :delete, class: 'btnbtn-custom btn_sm'%>
+    <%= button_to 'Delete', '/bakers', params: {baker_id: baker.id}, method: :delete, class: 'btnbtn-custom btn_sm'%>
   </p>
 <% end %>
 
