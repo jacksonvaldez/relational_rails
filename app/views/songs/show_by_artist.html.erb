@@ -3,7 +3,7 @@
 <p><a href="/artists/<%= @artist.id %>/songs/sorted">Sort Songs</a></p>
 
 <% @songs.each do |song|%>
-<h3><%= song.name %> (<a href='/songs/<%= song.id %>/edit'>Edit</a>)</h3>
+<h3><%= song.name %> (<a href='/songs/<%= song.id %>/edit'>Edit</a>) <%= button_to 'Delete', "/artists/#{@artist.id}/songs", params: {song_id: song.id}, method: :delete, class: 'btnbtn-custom btn_sm'%></h3>
 
 <p>Artist: <%= song.artist.name %></p>
 
