@@ -29,14 +29,14 @@ class BakersController < ApplicationController
   end
 
   def create
-    params[:is_working] == "true" ? is_working = true : is_working = false
+
     Baker.create({
-      name: params[:baker][:name],
-      is_working: is_working,
-      salary: params[:baker][:salary].to_i,
-      bakery_id: params[:id]
+      name: params[:name],
+      is_working: params[:is_working] == "true" ? true : false,
+      salary: params[:salary].to_i,
+      bakery_id: params[:bakery_id]
     })
-    redirect_to "/bakeries/#{params[:id]}/bakers"
+    redirect_to "/bakeries/#{params[:bakery_id]}/bakers"
   end
 
   def edit

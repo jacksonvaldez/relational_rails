@@ -1,14 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe 'Create Bakery Form' do
+RSpec.describe 'Create Baker Form' do
 
   before(:each) do
-    @dunkin = Bakery.create!(name: 'Dunkin Donuts', is_open: true, customer_capacity: 6)
+    @dunkin = Bakery.create!(name: 'Dunkin Donuts', is_open: true, customer_capacity: 400)
     visit "/bakeries/#{@dunkin.id}/bakers/new"
-    fill_in('baker[name]', with: 'Mike Dao')
-    fill_in('baker[salary]', with: '125000')
+    fill_in(:name, with: 'Jon Doe')
+    fill_in(:salary, with: '12000')
+    select('No', from: :is_working)
 
-    click_button()
+    click_button 'Hire Baker'
   end
 
   it 'takes you to correct path' do
@@ -16,11 +17,15 @@ RSpec.describe 'Create Bakery Form' do
   end
 
   it 'lists a new baker' do
-    expect(page).to have_content('Mike Dao')
+    expect(page).to have_content('Jon Doe')
   end
 
-  it 'saves customer_capacity attribute' do
-    expect(page).to have_content('125000')
+  it 'saves salary attribute' do
+    expect(page).to have_content('12000')
+  end
+
+  it 'saves is_working attribute' do
+    expect(page).to have_content('false')
   end
 
 end

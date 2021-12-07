@@ -29,14 +29,14 @@ class SongsController < ApplicationController
   end
 
   def create
-    params[:top_100] == "true" ? top_100 = true : top_100 = false
+    # binding.pry
     Song.create({
-      name: params[:song][:name],
-      top_100: top_100,
-      length_s: params[:song][:length_s].to_i,
-      artist_id: params[:id]
+      name: params[:name],
+      top_100: params[:top_100] == "true" ? true : false,
+      length_s: params[:length_s].to_i,
+      artist_id: params[:artist_id]
     })
-    redirect_to "/artists/#{params[:id]}/songs"
+    redirect_to "/artists/#{params[:artist_id]}/songs"
   end
 
   def edit
