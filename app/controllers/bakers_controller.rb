@@ -32,7 +32,7 @@ class BakersController < ApplicationController
 
     Baker.create({
       name: params[:name],
-      is_working: params[:is_working] == "true" ? true : false,
+      is_working: params[:is_working] == "Yes" ? true : false,
       salary: params[:salary].to_i,
       bakery_id: params[:bakery_id]
     })
@@ -44,13 +44,12 @@ class BakersController < ApplicationController
   end
 
   def update
-    # require "pry"; binding.pry
     baker = Baker.find(params[:id])
-    params[:is_working] == "true" ? is_working = true : is_working = false
+
     baker.update(
-      name: params[:baker][:name],
-      is_working: is_working,
-      salary: params[:baker][:salary].to_i
+      name: params[:name],
+      is_working: params[:is_working] == "Yes" ? true : false,
+      salary: params[:salary].to_i
     )
     baker.save
     redirect_to "/bakers/#{baker.id}"

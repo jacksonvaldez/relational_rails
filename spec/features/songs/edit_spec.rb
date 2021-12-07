@@ -7,10 +7,11 @@ RSpec.describe 'Edit Song Form' do
     @thankunext = Song.create!(name: "thank u, next", top_100: true, length_s: 123, artist_id: @ariana.id)
     visit "/songs/#{@thankunext.id}"
     click_on "Update This Song"
-    fill_in('song[name]', with: 'thank you, next')
-    fill_in('song[length_s]', with: '125')
+    fill_in(:name, with: 'thank you, next')
+    fill_in(:length_s, with: '125')
+    select('No', from: :top_100)
 
-    click_button()
+    click_button('Save Changes')
   end
 
   it 'takes you to correct path' do
@@ -23,6 +24,10 @@ RSpec.describe 'Edit Song Form' do
 
   it 'saves length_s attribute' do
     expect(page).to have_content('125')
+  end
+
+  it 'saves top_100 attribute' do
+    expect(page).to have_content('Top 100: false')
   end
 
 end

@@ -1,16 +1,17 @@
 <h2>Edit Song</h2>
 
-<form action="/songs/<%= @song.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="PATCH" />
-  <p>Name:</p>
-  <input type='text' name='song[name]' value="<%= @song.name %>"/><br/><br/>
-  <label for="top_100">Top 100:</label>
-    <select id="top_100" name="top_100" >
-      <option value="true">Yes</option>
-      <option value="false">No</option>
-    </select>
-  <p>Length in Seconds:</p>
-  <input type='text' name='song[length_s]' value="<%= @song.length_s %>"/><br/><br/>
-  <input type='submit' value = 'Save Changes'/>
-</form>
+<%= form_with url: "/songs/#{@song.id}", method: :patch, local: true do |form| %>
+  <%= form.label "Name:" %>
+  <%= form.text_field :name, value: @song.name %>
+
+  <%= form.label "Top 100:" %>
+  <%= form.select :top_100, ['Yes', 'No'] %>
+
+  <%= form.label "Length In Seconds:" %>
+  <%= form.text_field :length_s, value: @song.length_s %>
+
+  <%= form.hidden_field :artist_id %>
+  <%= hidden_field_tag :artist_id, "#{@song.artist.id}"  %>
+
+  <%= form.submit 'Save Changes' %>
+<% end %>
