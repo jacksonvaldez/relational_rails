@@ -24,7 +24,7 @@ RSpec.describe 'list of all bakers by bakery' do
 
   it 'sorts the baker names alphabetically when asked' do
     click_on 'Sort Bakers'
-    expect(page).to have_content("Salary: $20000/yr\nMike Jones")
+    expect("Joe Dirt").to appear_before("Mike Jones")
   end
 
   it 'returns bakers with salary greater than threshold' do
