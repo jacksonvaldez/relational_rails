@@ -55,9 +55,9 @@ class SongsController < ApplicationController
   end
 
   def sorted
-    songs = Song.where(artist_id: params[:id])
-    songs = songs.sort_by { |song| song.name.downcase }
-    redirect_to controller: 'songs', action: 'show_by_artist', sorted_songs: songs
+    songs = Song.where(artist_id: params[:id]).order('lower(name)')
+    song_ids = songs.map { |song| song.id }
+    redirect_to controller: 'songs', action: 'show_by_artist', sorted_songs: song_ids
   end
 
   def delete

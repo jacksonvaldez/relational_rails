@@ -53,9 +53,9 @@ class BakersController < ApplicationController
   end
 
   def sorted
-    bakers = Baker.where(bakery_id: params[:id])
-    bakers = bakers.sort_by { |baker| baker.name.downcase }
-    redirect_to controller: 'bakers', action: 'show_by_bakery', sorted_bakers: bakers
+    bakers = Baker.where(bakery_id: params[:id]).order('lower(name)')
+    baker_ids = bakers.map { |baker| baker.id }
+    redirect_to controller: 'bakers', action: 'show_by_bakery', sorted_bakers: baker_ids
   end
 
   def delete
