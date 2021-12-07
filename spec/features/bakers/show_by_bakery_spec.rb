@@ -29,10 +29,17 @@ RSpec.describe 'list of all bakers by bakery' do
 
   it 'returns bakers with salary greater than threshold' do
     fill_in('baker[salary_threshold]', with: '17000')
-    click_button()
+    click_button('Submit')
 
     expect(page).to have_content("Joe Dirt")
     expect(page).to_not have_content("Mike Jones")
   end
 
+  it 'returns bakers with salary greater than a threshold that is blank' do
+
+    click_button('Submit')
+
+    expect(page).to have_content("Joe Dirt")
+    expect(page).to have_content("Mike Jones")
+  end
 end
