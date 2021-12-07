@@ -1,15 +1,15 @@
-<h2>Add Song By <%= @artist.name %></h2>
+<%= form_with url: "/artists/#{@artist.id}/songs", method: :post, local: true do |form| %>
+  <%= form.label "Name:" %>
+  <%= form.text_field :name %>
 
-<form action="/artists/<%= @artist.id %>/songs" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <p>Name:</p>
-  <input type='text' name='song[name]'/><br/><br/>
-  <label for="top_100">Top 100:</label>
-    <select id="top_100" name="top_100">
-      <option value="true">Yes</option>
-      <option value="false">No</option>
-    </select>
-  <p>Length in Seconds:</p>
-  <input type='text' name='song[length_s]'/><br/><br/>
-  <input type='submit' value = 'Add Song'/>
-</form>
+  <%= form.label "Top 100:" %>
+  <%= form.select :top_100, ['Yes', 'No'] %>
+
+  <%= form.label "Length In Seconds:" %>
+  <%= form.text_field :length_s %>
+
+  <%= form.hidden_field :artist_id %>
+  <%= hidden_field_tag :artist_id, "#{@artist.id}"  %>
+
+  <%= form.submit 'Add Song' %>
+<% end %>

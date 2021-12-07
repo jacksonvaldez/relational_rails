@@ -1,15 +1,15 @@
-<h2>Hire Baker For <%= @bakery.name %></h2>
+<%= form_with url: "/bakeries/#{@bakery.id}/bakers", method: :post, local: true do |form| %>
+  <%= form.label "Name:" %>
+  <%= form.text_field :name %>
 
-<form action="/bakeries/<%= @bakery.id %>/bakers" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <p>Name:</p>
-  <input type='text' name='baker[name]'/><br/><br/>
-  <label for="is_working">Working Currently:</label>
-    <select id="is_working" name="is_working">
-      <option value="true">Yes</option>
-      <option value="false">No</option>
-    </select>
-  <p>Salary in USD:</p>
-  <input type='text' name='baker[salary]'/><br/><br/>
-  <input type='submit' value = 'Hire Baker'/>
-</form>
+  <%= form.label "Working Currently:" %>
+  <%= form.select :is_working, ['Yes', 'No'] %>
+
+  <%= form.label "Salary:" %>
+  <%= form.text_field :salary %>
+
+  <%= form.hidden_field :bakery_id %>
+  <%= hidden_field_tag :bakery_id, "#{@bakery.id}"  %>
+
+  <%= form.submit 'Hire Baker' %>
+<% end %>

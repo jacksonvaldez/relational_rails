@@ -1,14 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe 'Create Artist Form' do
+RSpec.describe 'Create Song Form' do
 
   before(:each) do
     @doja = Artist.create!(name: 'Doja Cat', alive: true, monthly_listeners: 400)
     visit "/artists/#{@doja.id}/songs/new"
-    fill_in('song[name]', with: 'Say So')
-    fill_in('song[length_s]', with: '120')
+    fill_in(:name, with: 'Say So')
+    fill_in(:length_s, with: '120')
+    select('No', from: :top_100)
 
-    click_button()
+    click_button 'Add Song'
   end
 
   it 'takes you to correct path' do
@@ -22,5 +23,9 @@ RSpec.describe 'Create Artist Form' do
   it 'saves length_s attribute' do
     expect(page).to have_content('120')
   end
-  
+
+  it 'saves top_100 attribute' do
+    expect(page).to have_content('Top 100: false')
+  end
+
 end

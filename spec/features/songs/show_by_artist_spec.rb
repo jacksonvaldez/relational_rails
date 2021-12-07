@@ -24,7 +24,8 @@ RSpec.describe 'list of all songs by artist' do
 
   it 'sorts the song names alphabetically when asked' do
     click_on 'Sort Songs'
-    expect(page).to have_content("Length: 254\nSeven Rings")
+
+    expect("Dangerous Woman").to appear_before('Seven Rings')
   end
 
   it 'returns songs with length greater than threshold' do

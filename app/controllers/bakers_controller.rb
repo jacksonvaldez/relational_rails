@@ -29,14 +29,12 @@ class BakersController < ApplicationController
   end
 
   def create
-    params[:is_working] == "true" ? is_working = true : is_working = false
-    Baker.create({
-      name: params[:baker][:name],
-      is_working: is_working,
-      salary: params[:baker][:salary].to_i,
-      bakery_id: params[:id]
-    })
-    redirect_to "/bakeries/#{params[:id]}/bakers"
+    params[:is_working] == "Yes" ? params[:is_working] = true : params[:is_working] = false
+
+    bakery = Bakery.find(params[:bakery_id])
+    bakery.bakers.create(baker_params)
+
+    redirect_to "/bakeries/#{params[:bakery_id]}/bakers"
   end
 
   def edit
@@ -44,13 +42,11 @@ class BakersController < ApplicationController
   end
 
   def update
-    # require "pry"; binding.pry
     baker = Baker.find(params[:id])
-    params[:is_working] == "true" ? is_working = true : is_working = false
     baker.update(
-      name: params[:baker][:name],
-      is_working: is_working,
-      salary: params[:baker][:salary].to_i
+      name: params[:name],
+      is_working: params[:is_working] == "Yes" ? true : false,
+      salary: params[:salary].to_i
     )
     baker.save
     redirect_to "/bakers/#{baker.id}"
@@ -65,5 +61,11 @@ class BakersController < ApplicationController
   def delete
     Baker.destroy(params[:baker_id])
     redirect_to '/bakers'
+  end
+
+  private
+
+  def baker_params
+    params.permit(:name, :is_working, :salary)
   end
 end

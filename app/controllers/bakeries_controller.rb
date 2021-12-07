@@ -40,7 +40,6 @@ class BakeriesController < ApplicationController
   end
 
   def delete
-    Baker.where(bakery_id: params[:id]).select(:id).destroy_all
     Bakery.destroy(params[:id])
     redirect_to '/bakeries'
 
