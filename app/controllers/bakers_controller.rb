@@ -45,7 +45,6 @@ class BakersController < ApplicationController
 
   def update
     baker = Baker.find(params[:id])
-
     baker.update(
       name: params[:name],
       is_working: params[:is_working] == "Yes" ? true : false,

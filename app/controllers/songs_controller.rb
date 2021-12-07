@@ -32,7 +32,7 @@ class SongsController < ApplicationController
     # binding.pry
     Song.create({
       name: params[:name],
-      top_100: params[:top_100] == "true" ? true : false,
+      top_100: params[:top_100] == "Yes" ? true : false,
       length_s: params[:length_s].to_i,
       artist_id: params[:artist_id]
     })
