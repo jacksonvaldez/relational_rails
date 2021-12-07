@@ -64,7 +64,7 @@ class BakersController < ApplicationController
   end
 
   def delete
-    Baker.destroy(params[:id])
+    Baker.destroy(params[:baker_id])
     redirect_to '/bakers'
   end
 end
