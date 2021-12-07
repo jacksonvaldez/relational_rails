@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-12-07T14:20:32-07:00">2021-12-07T14:20:32-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-12-07T15:03:34-07:00">2021-12-07T15:03:34-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>591</b> relevant lines,
-    <span class="green"><b>591</b> lines covered</span> and
+    <b>589</b> relevant lines,
+    <span class="green"><b>589</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -85,8 +85,8 @@
             <td class="strong t-file__name"><a href="#5bb25f5fc43f81719c6d7e9bed582991edf2d562" class="src_link" title="app/controllers/artists_controller.rb">app/controllers/artists_controller.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">49</td>
-            <td class="cell--number">22</td>
-            <td class="cell--number">22</td>
+            <td class="cell--number">21</td>
+            <td class="cell--number">21</td>
             <td class="cell--number">0</td>
             <td class="cell--number">2.95</td>
             
@@ -96,8 +96,8 @@
             <td class="strong t-file__name"><a href="#d9fbf1ca216d4beb2942a23344159494b87c552c" class="src_link" title="app/controllers/bakeries_controller.rb">app/controllers/bakeries_controller.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">49</td>
-            <td class="cell--number">22</td>
-            <td class="cell--number">22</td>
+            <td class="cell--number">21</td>
+            <td class="cell--number">21</td>
             <td class="cell--number">0</td>
             <td class="cell--number">2.95</td>
             
@@ -682,8 +682,8 @@
     
 
     <div class="t-line-summary">
-      <b>22</b> relevant lines.
-      <span class="green"><b>22</b> lines covered</span> and
+      <b>21</b> relevant lines.
+      <span class="green"><b>21</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -1168,13 +1168,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="44">
-            <span class="hits">3</span>
+          <li class="never" data-hits="" data-linenumber="44">
+            
             
 
             
 
-            <code class="ruby">    Song.where(artist_id: params[:id]).select(:id).destroy_all</code>
+            <code class="ruby">    # Song.where(artist_id: params[:id]).select(:id).destroy_all</code>
           </li>
         </div>
       
@@ -1252,8 +1252,8 @@
     
 
     <div class="t-line-summary">
-      <b>22</b> relevant lines.
-      <span class="green"><b>22</b> lines covered</span> and
+      <b>21</b> relevant lines.
+      <span class="green"><b>21</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -1727,13 +1727,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="43">
-            <span class="hits">3</span>
+          <li class="never" data-hits="" data-linenumber="43">
+            
             
 
             
 
-            <code class="ruby">    Baker.where(bakery_id: params[:id]).select(:id).destroy_all</code>
+            <code class="ruby">    # Baker.where(bakery_id: params[:id]).select(:id).destroy_all</code>
           </li>
         </div>
       
@@ -3549,7 +3549,7 @@
 
             
 
-            <code class="ruby">  has_many :songs</code>
+            <code class="ruby">  has_many :songs, dependent: :destroy</code>
           </li>
         </div>
       
@@ -3732,7 +3732,7 @@
 
             
 
-            <code class="ruby">  has_many :bakers</code>
+            <code class="ruby">  has_many :bakers, dependent: :destroy</code>
           </li>
         </div>
       
