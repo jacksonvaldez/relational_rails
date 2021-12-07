@@ -41,7 +41,6 @@ class BakersController < ApplicationController
 
   def edit
     @baker = Baker.find(params[:id])
-    @bakery = @baker.bakery
   end
 
   def update
