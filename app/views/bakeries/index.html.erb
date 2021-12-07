@@ -2,7 +2,9 @@
 
 <h3>All Bakeries:</h3>
 <% @bakeries.each do |bakery| %>
-  <p><a href="/bakeries/<%= bakery.id %>"> <%= bakery.name %></a> (<a href="/bakeries/<%= bakery.id %>/edit">Edit</a>)</p>
+  <p><a href="/bakeries/<%= bakery.id %>"> <%= bakery.name %></a> (<a href="/bakeries/<%= bakery.id %>/edit">Edit</a>)
+    <%= button_to 'Delete', '/bakeries', params: {id: bakery.id}, method: :delete, class: 'btnbtn-custom btn_sm'%>
+  </p>
 <% end %>
 
 <h3><a href="/bakeries/new">New Bakery</a></h3>
