@@ -29,13 +29,11 @@ class SongsController < ApplicationController
   end
 
   def create
-    # binding.pry
-    Song.create({
-      name: params[:name],
-      top_100: params[:top_100] == "Yes" ? true : false,
-      length_s: params[:length_s].to_i,
-      artist_id: params[:artist_id]
-    })
+    params[:top_100] == "Yes" ? params[:top_100] = true : params[:top_100] = false
+
+    artist = Artist.find(params[:artist_id])
+    artist.songs.create(song_params)
+
     redirect_to "/artists/#{params[:artist_id]}/songs"
   end
 
@@ -65,5 +63,11 @@ class SongsController < ApplicationController
   def delete
     Song.destroy(params[:song_id])
     redirect_to '/songs'
+  end
+
+  private
+
+  def song_params
+    params.permit(:name, :top_100, :length_s)
   end
 end
